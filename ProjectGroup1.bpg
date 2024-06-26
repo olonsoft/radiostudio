@@ -1,0 +1,61 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = Log.exe Utility.exe Database.exe Playlist.exe Settings.exe \
+  Studio19.exe Traffic.exe Log.enu Utility.enu Database.enu Playlist.enu \
+  Settings.enu Studio19.enu Traffic.enu
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+Log.exe: Log.dpr
+  $(DCC)
+
+Utility.exe: Utility.dpr
+  $(DCC)
+
+Database.exe: Database.dpr
+  $(DCC)
+
+Playlist.exe: Playlist.dpr
+  $(DCC)
+
+Settings.exe: Settings.dpr
+  $(DCC)
+
+Studio19.exe: Studio19.dpr
+  $(DCC)
+
+Traffic.exe: Traffic.dpr
+  $(DCC)
+
+Log.enu: C:\Work\Delphi\Projects\Studio19\enu\Log.dpr
+  $(DCC)
+
+Utility.enu: C:\Work\Delphi\Projects\Studio19\enu\Utility.dpr
+  $(DCC)
+
+Database.enu: C:\Work\Delphi\Projects\Studio19\enu\Database.dpr
+  $(DCC)
+
+Playlist.enu: C:\Work\Delphi\Projects\Studio19\enu\Playlist.dpr
+  $(DCC)
+
+Settings.enu: C:\Work\Delphi\Projects\Studio19\enu\Settings.dpr
+  $(DCC)
+
+Studio19.enu: C:\Work\Delphi\Projects\Studio19\enu\Studio19.dpr
+  $(DCC)
+
+Traffic.enu: C:\Work\Delphi\Projects\Studio19\enu\Traffic.dpr
+  $(DCC)
+
+

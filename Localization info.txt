@@ -1,0 +1,21 @@
+  ENGLISH = (SUBLANG_ENGLISH_US shl 10) or LANG_ENGLISH;
+  FRENCH  = (SUBLANG_FRENCH shl 10) or LANG_FRENCH;
+  GERMAN  = (SUBLANG_GERMAN shl 10) or LANG_GERMAN;
+
+ONCREATE :
+
+  case SysLocale.DefaultLCID of
+    ENGLISH: SwitchLanguage(LanguageEnglish);
+    FRENCH: SwitchLanguage(LanguageFrench);
+    GERMAN: SwitchLanguage(LanguageGerman);
+  end;
+
+
+procedure SwitchLanguage(Sender: TObject);
+begin
+  if LoadNewResourceModule(ENGLISH) <> 0 then
+    ReinitializeForms;
+end;
+
+
+{ see richedit στα demos }
