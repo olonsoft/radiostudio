@@ -325,7 +325,7 @@ type
     Function LocateFileName(Var TheItem : TPlayItem): Boolean;
     Function LoadSpots(TheTime : TDateTime) : Boolean;
     procedure GetSpotNameAndFileName(RecCode : LongInt; var RecName, RecFileName : String);
-    procedure LoadSpotsToSelected(SelectMode : TSelectionType);     // φόρτωσε τα σποτ στα επιλεγμένα
+    procedure LoadSpotsToSelected(SelectMode : TSelectionType);     // Ο†ΟΟΟ„Ο‰ΟƒΞµ Ο„Ξ± ΟƒΟ€ΞΏΟ„ ΟƒΟ„Ξ± ΞµΟ€ΞΉΞ»ΞµΞ³ΞΌΞ­Ξ½Ξ±
     procedure LoadSpotToSelected(SpotNo : Integer; SelectMode : TSelectionType);
     Function  FindSongFromDatabase(BeatFrom, BeatTo, BeatDelta, NowBeat : Integer;
                                    Params : String) : TPlayItem;
@@ -765,8 +765,8 @@ procedure TForm1.FormActivate(Sender: TObject);
 begin
 {  if Now > EncodeDate(2000, 01, 20) then
   begin
-    ShowMessage('Η χρονική διάρκεια λειτουργίας του προγράμματος έληξε.' + #13 +
-      'Παρακαλώ επικοινωνήστε με το προμηθευτή του : register@studio19.gr');
+    ShowMessage('Ξ— Ο‡ΟΞΏΞ½ΞΉΞΊΞ® Ξ΄ΞΉΞ¬ΟΞΊΞµΞΉΞ± Ξ»ΞµΞΉΟ„ΞΏΟ…ΟΞ³Ξ―Ξ±Ο‚ Ο„ΞΏΟ… Ο€ΟΞΏΞ³ΟΞ¬ΞΌΞΌΞ±Ο„ΞΏΟ‚ Ξ­Ξ»Ξ·ΞΎΞµ.' + #13 +
+      'Ξ Ξ±ΟΞ±ΞΊΞ±Ξ»Ο ΞµΟ€ΞΉΞΊΞΏΞΉΞ½Ο‰Ξ½Ξ®ΟƒΟ„Ξµ ΞΌΞµ Ο„ΞΏ Ο€ΟΞΏΞΌΞ·ΞΈΞµΟ…Ο„Ξ® Ο„ΞΏΟ… : register@studio19.gr');
 
     Application.Terminate;
   end;
@@ -1090,9 +1090,9 @@ begin
 
   NewProgramFound := False;
 
-  if RadioSettings.PlayMode = pmAuto then // αν παίζει αυτόματα
+  if RadioSettings.PlayMode = pmAuto then // Ξ±Ξ½ Ο€Ξ±Ξ―Ξ¶ΞµΞΉ Ξ±Ο…Ο„ΟΞΌΞ±Ο„Ξ±
   begin
-    // έλεγξε άν υπάρχουν επόμενα προγράμματα
+    // Ξ­Ξ»ΞµΞ³ΞΎΞµ Ξ¬Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ ΞµΟ€ΟΞΌΞµΞ½Ξ± Ο€ΟΞΏΞ³ΟΞ¬ΞΌΞΌΞ±Ο„Ξ±
     StatusBar1.Panels[0].Text := C_NewProgramCheck;
     StatusBar1.Update;
     GetPrgItem1.CopyProgramInfo(CurrentProgramInfo, tmpProgramInfo);
@@ -1109,8 +1109,8 @@ begin
       PrgInfoLabel.Caption := 'Playlist: ' + #13 + PrgInfoLabel.Caption;
 
       MoveAllAutoSelectedToMainList(MainPrgList.Items.Count);
-      DeleteAutoSongsFromList;  // Σβήσε όσα τραγούδια έχουν επιλεγεί αυτόματα
-      AddProgramEndJingles;     // πρόσθεσε audio κλεισίματος
+      DeleteAutoSongsFromList;  // Ξ£Ξ²Ξ®ΟƒΞµ ΟΟƒΞ± Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉΞ± Ξ­Ο‡ΞΏΟ…Ξ½ ΞµΟ€ΞΉΞ»ΞµΞ³ΞµΞ― Ξ±Ο…Ο„ΟΞΌΞ±Ο„Ξ±
+      AddProgramEndJingles;     // Ο€ΟΟΟƒΞΈΞµΟƒΞµ audio ΞΊΞ»ΞµΞΉΟƒΞ―ΞΌΞ±Ο„ΞΏΟ‚
       MoveAllAutoSelectedToMainList(MainPrgList.Items.Count);
       GetPrgItem1.CopyProgramInfo(tmpProgramInfo, CurrentProgramInfo);
     end;
@@ -1120,13 +1120,13 @@ begin
   StatusBar1.Panels[0].Text := C_CheckForSpots;
   StatusBar1.Update;
 
-  if CheckForSpots(Present) then      // αν υπάρχουν σποτ
-    if RadioSettings.PlayMode = pmAuto then  // αν παίζει αυτόματα
+  if CheckForSpots(Present) then      // Ξ±Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ ΟƒΟ€ΞΏΟ„
+    if RadioSettings.PlayMode = pmAuto then  // Ξ±Ξ½ Ο€Ξ±Ξ―Ξ¶ΞµΞΉ Ξ±Ο…Ο„ΟΞΌΞ±Ο„Ξ±
     begin
       if NewProgramFound then
-        MoveAllAutoSelectedToMainList(MainPrgList.Items.Count) // βάλε τα σποτ μετά το end jingle
+        MoveAllAutoSelectedToMainList(MainPrgList.Items.Count) // Ξ²Ξ¬Ξ»Ξµ Ο„Ξ± ΟƒΟ€ΞΏΟ„ ΞΌΞµΟ„Ξ¬ Ο„ΞΏ end jingle
       else
-        MoveAllAutoSelectedToMainList(1);       // βάλε τα σποτ άμέσως μετά από αυτό που παίζει
+        MoveAllAutoSelectedToMainList(1);       // Ξ²Ξ¬Ξ»Ξµ Ο„Ξ± ΟƒΟ€ΞΏΟ„ Ξ¬ΞΌΞ­ΟƒΟ‰Ο‚ ΞΌΞµΟ„Ξ¬ Ξ±Ο€Ο Ξ±Ο…Ο„Ο Ο€ΞΏΟ… Ο€Ξ±Ξ―Ξ¶ΞµΞΉ
       PageControl1.ActivePage := OnAirTab;
     end;
   StatusBar1.Panels[0].Text := '';
@@ -1186,7 +1186,7 @@ begin
     isEnded     : PlayerOnEnd(i);
   end;
 
-  // γιατί το isUnloaded θα σβήσει το item i
+  // Ξ³ΞΉΞ±Ο„Ξ― Ο„ΞΏ isUnloaded ΞΈΞ± ΟƒΞ²Ξ®ΟƒΞµΞΉ Ο„ΞΏ item i
   if TheStatus <> isDelete then
   Begin
 //    TMainPlayer(PPlayItem(MainPrgList.Items.Objects[i])^.Player).PlayItem := PPlayItem(MainPrgList.Items.Objects[i])^;
@@ -1202,10 +1202,10 @@ begin
   TotalTime := 0;
   While i <= MainPrgList.Items.Count-1 do
   begin
-    // εάν υπάρχει player φορτωμένο
+    // ΞµΞ¬Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ player Ο†ΞΏΟΟ„Ο‰ΞΌΞ­Ξ½ΞΏ
     if PPlayItem(MainPrgList.Items.Objects[i])^.Player <> nil then
     Begin
-      // εάν το player παίζει
+      // ΞµΞ¬Ξ½ Ο„ΞΏ player Ο€Ξ±Ξ―Ξ¶ΞµΞΉ
       if PPlayItem(MainPrgList.Items.Objects[i])^.Status in [isPlaying, isFadePlay] then
       Begin
         with PPlayItem(MainPrgList.Items.Objects[i])^ do
@@ -1219,7 +1219,7 @@ begin
             ShowPlusTime(PlayInfo.Position);
             UpdateGauge(PlayInfo.Position, PlayInfo.Length);
           end;
-          // έλεγξε αν πρέπει να γίνει μίξη με το επόμενο
+          // Ξ­Ξ»ΞµΞ³ΞΎΞµ Ξ±Ξ½ Ο€ΟΞ­Ο€ΞµΞΉ Ξ½Ξ± Ξ³Ξ―Ξ½ΞµΞΉ ΞΌΞ―ΞΎΞ· ΞΌΞµ Ο„ΞΏ ΞµΟ€ΟΞΌΞµΞ½ΞΏ
           if (PlayInfo.Position >= PlayInfo.MixPos) { and
              (PlayInfo.Position < PlayInfo.Length) } then
              StartNextIfMust(i);
@@ -1678,8 +1678,8 @@ begin
         begin
           if PPlayItem(MainPrgList.Items.Objects[k])^.Status <> isUnloaded then
             TMainPlayer(PPlayItem(MainPrgList.Items.Objects[k])^.Player).UnloadOnly;
-          // θα καλέσει το OnChangeStatus =  isUnloading
-          //  για να πάρει το νέο state που θα είναι πιθανόν stUnloading
+          // ΞΈΞ± ΞΊΞ±Ξ»Ξ­ΟƒΞµΞΉ Ο„ΞΏ OnChangeStatus =  isUnloading
+          //  Ξ³ΞΉΞ± Ξ½Ξ± Ο€Ξ¬ΟΞµΞΉ Ο„ΞΏ Ξ½Ξ­ΞΏ state Ο€ΞΏΟ… ΞΈΞ± ΞµΞ―Ξ½Ξ±ΞΉ Ο€ΞΉΞΈΞ±Ξ½ΟΞ½ stUnloading
 {          PPlayItem(MainPrgList.Items.Objects[k])^ := TMainPlayer(PPlayItem(MainPrgList.Items.Objects[k])^.Player).PlayItem;
           RefreshItemControls(k); }
         end;
@@ -1886,7 +1886,7 @@ begin
         UpdateTotalTime;
         if (Shifted > 0) and (Shifted + CMaxPlayers > MainPrgList.Items.Count) then
           Dec(Shifted);
-        RefreshAllPanelControls(Shifted);  // To shifted ήταν i
+        RefreshAllPanelControls(Shifted);  // To shifted Ξ®Ο„Ξ±Ξ½ i
         MustLoadCheck := True;
       end;
     isReadyPlay, isPaused : TMainPlayer(PPlayItem(MainPrgList.Items.Objects[i])^.Player).Unload;
@@ -2056,8 +2056,8 @@ begin
       FName := GetRandomSongFromFilePack(ThePackFile);
       if PlayedRecently(FName) then
       begin
-        Inc(Tries);        // κοιτάζει 50 τραγούδια πίσω για πρόσφατα
-        if Tries > 50 then // μεταδιδόμενο τραγούδι
+        Inc(Tries);        // ΞΊΞΏΞΉΟ„Ξ¬Ξ¶ΞµΞΉ 50 Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉΞ± Ο€Ξ―ΟƒΟ‰ Ξ³ΞΉΞ± Ο€ΟΟΟƒΟ†Ξ±Ο„Ξ±
+        if Tries > 50 then // ΞΌΞµΟ„Ξ±Ξ΄ΞΉΞ΄ΟΞΌΞµΞ½ΞΏ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
           Break
       end
       else
@@ -2186,7 +2186,7 @@ begin
 
   FindThreadActive := True;
 
-  CurrentProgramInfo.AutoRepeat := True; // για να παίζει συνέχεια
+  CurrentProgramInfo.AutoRepeat := True; // Ξ³ΞΉΞ± Ξ½Ξ± Ο€Ξ±Ξ―Ξ¶ΞµΞΉ ΟƒΟ…Ξ½Ξ­Ο‡ΞµΞΉΞ±
 
   ThePlsString := GetPrgItem1.GetItem(CurrentProgramInfo);
   AddItemToList(ThePlsString);
@@ -2206,15 +2206,15 @@ begin
     if (ThePlayItem.ErrorStr = '') then
     begin
       if LocateFileName(ThePlayItem) then
-        // πρόσθεσε στο selected list
+        // Ο€ΟΟΟƒΞΈΞµΟƒΞµ ΟƒΟ„ΞΏ selected list
         AddToSelectedListBox(ThePlayItem)
       else
       begin
-        // αν είναι φίλτρο τότε
+        // Ξ±Ξ½ ΞµΞ―Ξ½Ξ±ΞΉ Ο†Ξ―Ξ»Ο„ΟΞΏ Ο„ΟΟ„Ξµ
         if ThePlsString[1] = C_ProgramItemDBFilter then
-          // αν δεν βρέθηκε το αρχείο
+          // Ξ±Ξ½ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΞΏ Ξ±ΟΟ‡ΞµΞ―ΞΏ
           if pos(C_ErrorFileNotFound, ThePlayItem.ErrorStr) <> 0 then
-            // απενεργοποίησε το file ώστε να μην το επιλέξει ξανά
+            // Ξ±Ο€ΞµΞ½ΞµΟΞ³ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞµ Ο„ΞΏ file ΟΟƒΟ„Ξµ Ξ½Ξ± ΞΌΞ·Ξ½ Ο„ΞΏ ΞµΟ€ΞΉΞ»Ξ­ΞΎΞµΞΉ ΞΎΞ±Ξ½Ξ¬
             if DisableDBTitle(ThePlayItem.TitleCode) then
               LogWrite(liError, C_DisabledSong +
                        ThePlayItem.Artist + ' - ' + ThePlayItem.Song);
@@ -2277,7 +2277,7 @@ begin
   Result := RadioSettings.TrafficDir + FormatDateTime('yyyymmdd', tm) + '.ads';
 end;
 
-procedure TForm1.LoadSpotsToSelected(SelectMode : TSelectionType);     // φόρτωσε τα σποτ στα επιλεγμένα
+procedure TForm1.LoadSpotsToSelected(SelectMode : TSelectionType);     // Ο†ΟΟΟ„Ο‰ΟƒΞµ Ο„Ξ± ΟƒΟ€ΞΏΟ„ ΟƒΟ„Ξ± ΞµΟ€ΞΉΞ»ΞµΞ³ΞΌΞ­Ξ½Ξ±
 begin
   While SpotsList1.Items.Count > 0 do
   Try
@@ -2325,8 +2325,8 @@ begin
   if LoadSpots(CheckTime) then
     PageControl1.ActivePage := SpotsTab;
 
-  // αν είναι ώρα για φόρτωμα
-  // έλεγξε αν υπάρχουν σποτ που περιμένουν
+  // Ξ±Ξ½ ΞµΞ―Ξ½Ξ±ΞΉ ΟΟΞ± Ξ³ΞΉΞ± Ο†ΟΟΟ„Ο‰ΞΌΞ±
+  // Ξ­Ξ»ΞµΞ³ΞΎΞµ Ξ±Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ ΟƒΟ€ΞΏΟ„ Ο€ΞΏΟ… Ο€ΞµΟΞΉΞΌΞ­Ξ½ΞΏΟ…Ξ½
 
   if (SpotsList1.Items.Count > 0) and (RadioSettings.PlayMode = pmAuto) then
   Begin
@@ -2336,7 +2336,7 @@ begin
       if LoadTime >= FileDateToDateTime(LongInt(SpotsList1.Items.Objects[i])) then
       begin
         Result := True;
-        LoadSpotToSelected(i, stAuto); // και σβήνει το item
+        LoadSpotToSelected(i, stAuto); // ΞΊΞ±ΞΉ ΟƒΞ²Ξ®Ξ½ΞµΞΉ Ο„ΞΏ item
       end
       else
         Inc(i);
@@ -2374,7 +2374,7 @@ begin
 
     tblSpots.Open;
 
-    // βάλε ένα jingle από το spotsIn ===================================
+    // Ξ²Ξ¬Ξ»Ξµ Ξ­Ξ½Ξ± jingle Ξ±Ο€Ο Ο„ΞΏ spotsIn ===================================
     tmpPlayItem := GetItemFromFilePack('SpotsIn' + C_FilePacksExt);
     if tmpPlayItem.ErrorStr = '' then
       SpotsList1.Items.AddObject(tmpPlayItem.FileName + CSep + tmpPlayItem.FileName, Pointer(DateTimeToFileDate(TheTime)) )
@@ -2384,14 +2384,14 @@ begin
     Result := True;
     Count := 0;
     Repeat
-      // βρες τον κωδικό της διαφήμισης
+      // Ξ²ΟΞµΟ‚ Ο„ΞΏΞ½ ΞΊΟ‰Ξ΄ΞΉΞΊΟ Ο„Ξ·Ο‚ Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·Ο‚
       RecCode := StrToInt(ExtractDelimited(3, DaysSpots[i], [CSep1, CSep]));
       NewPrior := StrToInt(ExtractDelimited(2, DaysSpots[i], [CSep1, CSep]));
-      // βρες το filename από τον κωδικό
+      // Ξ²ΟΞµΟ‚ Ο„ΞΏ filename Ξ±Ο€Ο Ο„ΞΏΞ½ ΞΊΟ‰Ξ΄ΞΉΞΊΟ
       GetSpotNameAndFileName(RecCode, RecName, RecFileName);
       if RecFileName <> '' then
       begin
-        // αν αντί για διαφήμιση είναι κάποιο πακέτο αρχείων φόρτωσέ το
+        // Ξ±Ξ½ Ξ±Ξ½Ο„Ξ― Ξ³ΞΉΞ± Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· ΞµΞ―Ξ½Ξ±ΞΉ ΞΊΞ¬Ο€ΞΏΞΉΞΏ Ο€Ξ±ΞΊΞ­Ο„ΞΏ Ξ±ΟΟ‡ΞµΞ―Ο‰Ξ½ Ο†ΟΟΟ„Ο‰ΟƒΞ­ Ο„ΞΏ
         if Pos(C_FilePacksExt, RecFileName) > 0 then
         begin
           StrList := TStringList.Create;
@@ -2405,11 +2405,11 @@ begin
           end;
         end
         else
-          // αν είναι διαφήμιση πρόσθεσέ τη στη λίστα
-{          if Prior <> NewPrior then // αν η προτεραιότητα είναι διαφορετική από την προηγούμενη διαφήμιση
+          // Ξ±Ξ½ ΞµΞ―Ξ½Ξ±ΞΉ Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ· Ο€ΟΟΟƒΞΈΞµΟƒΞ­ Ο„Ξ· ΟƒΟ„Ξ· Ξ»Ξ―ΟƒΟ„Ξ±
+{          if Prior <> NewPrior then // Ξ±Ξ½ Ξ· Ο€ΟΞΏΟ„ΞµΟΞ±ΞΉΟΟ„Ξ·Ο„Ξ± ΞµΞ―Ξ½Ξ±ΞΉ Ξ΄ΞΉΞ±Ο†ΞΏΟΞµΟ„ΞΉΞΊΞ® Ξ±Ο€Ο Ο„Ξ·Ξ½ Ο€ΟΞΏΞ·Ξ³ΞΏΟΞΌΞµΞ½Ξ· Ξ΄ΞΉΞ±Ο†Ξ®ΞΌΞΉΟƒΞ·
           begin
             Prior := NewPrior;
-            if ShuffleList.Items.Count > 0 then  // αν υπάρχουν στοιχεία στη λίστα με τις διαφημίσεις με ίδια προτεραιότητα
+            if ShuffleList.Items.Count > 0 then  // Ξ±Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ ΟƒΟ„ΞΏΞΉΟ‡ΞµΞ―Ξ± ΟƒΟ„Ξ· Ξ»Ξ―ΟƒΟ„Ξ± ΞΌΞµ Ο„ΞΉΟ‚ Ξ΄ΞΉΞ±Ο†Ξ·ΞΌΞ―ΟƒΞµΞΉΟ‚ ΞΌΞµ Ξ―Ξ΄ΞΉΞ± Ο€ΟΞΏΟ„ΞµΟΞ±ΞΉΟΟ„Ξ·Ο„Ξ±
             begin
               Shuffle(ShuffleList.Items);
               SpotsList1.Items.Addstrings(ShuffleList.Items);
@@ -2418,7 +2418,7 @@ begin
             else        }
               SpotsList1.Items.AddObject(RecName + CSep + RecFileName, Pointer(DateTimeToFileDate(TheTime)) );
 {          end
-          else // αν η προτεραιότητα................
+          else // Ξ±Ξ½ Ξ· Ο€ΟΞΏΟ„ΞµΟΞ±ΞΉΟΟ„Ξ·Ο„Ξ±................
 }
         Inc(Count);
       end;
@@ -2427,7 +2427,7 @@ begin
         tmp := ExtractDelimited(1, DaysSpots[i], [CSep1]);
     until (i > DaysSpots.Count-1) or (tm <> tmp);
 
-    // Βάλε ένα jingle από το SpotsOut ===================================
+    // Ξ’Ξ¬Ξ»Ξµ Ξ­Ξ½Ξ± jingle Ξ±Ο€Ο Ο„ΞΏ SpotsOut ===================================
     tmpPlayItem := GetItemFromFilePack('SpotsOut' + C_FilePacksExt);
     if tmpPlayItem.ErrorStr = '' then
       SpotsList1.Items.AddObject(tmpPlayItem.FileName + CSep + tmpPlayItem.FileName, Pointer(DateTimeToFileDate(TheTime)) )
@@ -3001,7 +3001,7 @@ Begin
     MsgListBox.Items.Delete(0);
 End;
 
-// Σβήνει όλα τα τραγούδια που έχουν επιλεγεί αυτόματα
+// Ξ£Ξ²Ξ®Ξ½ΞµΞΉ ΟΞ»Ξ± Ο„Ξ± Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉΞ± Ο€ΞΏΟ… Ξ­Ο‡ΞΏΟ…Ξ½ ΞµΟ€ΞΉΞ»ΞµΞ³ΞµΞ― Ξ±Ο…Ο„ΟΞΌΞ±Ο„Ξ±
 procedure TForm1.DeleteAutoSongsFromList;
 var
   i : Integer;
@@ -3059,7 +3059,7 @@ Begin
     if tblTitlesUpd.Locate('TitleCode', TitleCode, []) then
       Cont := True;
   end;
-  if Cont then  // Βρέθηκε ο τίτλος στο αρχείο
+  if Cont then  // Ξ’ΟΞ­ΞΈΞ·ΞΊΞµ ΞΏ Ο„Ξ―Ο„Ξ»ΞΏΟ‚ ΟƒΟ„ΞΏ Ξ±ΟΟ‡ΞµΞ―ΞΏ
   begin
     Try
       ArtistCode := tblTitlesUpd.FieldByName('ArtistCode').AsInteger;
@@ -3080,7 +3080,7 @@ Begin
       on E: Exception do
         LogWrite(liError, Format('%s (%d)', ['Can not save title info', StrToIniStr(E.Message), E.HelpContext]) );
     end;
-    // βρες τώρα τα στοιχεία του καλλιτέχνη
+    // Ξ²ΟΞµΟ‚ Ο„ΟΟΞ± Ο„Ξ± ΟƒΟ„ΞΏΞΉΟ‡ΞµΞ―Ξ± Ο„ΞΏΟ… ΞΊΞ±Ξ»Ξ»ΞΉΟ„Ξ­Ο‡Ξ½Ξ·
     Cont := False;
 
     if tblArtistUpd.Locate('ArtistCode', ArtistCode, []) then
@@ -3092,7 +3092,7 @@ Begin
       if tblArtistUpd.Locate('ArtistCode', ArtistCode, []) then
         Cont := True;
     end;
-    if Cont then // Βρέθηκε ο καλλιτέχνης στο αρχείο
+    if Cont then // Ξ’ΟΞ­ΞΈΞ·ΞΊΞµ ΞΏ ΞΊΞ±Ξ»Ξ»ΞΉΟ„Ξ­Ο‡Ξ½Ξ·Ο‚ ΟƒΟ„ΞΏ Ξ±ΟΟ‡ΞµΞ―ΞΏ
     Try
       tblArtistUpd.Edit;
       tblArtistUpd.FieldByName('LastPlayed').AsDateTime := NowTime;
@@ -3361,14 +3361,14 @@ var
           i : Integer;
           IsOneSelected : Boolean;
         begin
-          // πρώτο κομμάτι είναι το style
+          // Ο€ΟΟΟ„ΞΏ ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉ ΞµΞ―Ξ½Ξ±ΞΉ Ο„ΞΏ style
           FStyle := StrToInt(ExtractDelimited(1, Params, [CSep]));
 
-          // Δεύτερο κομμάτι είναι η κατηγορία
+          // Ξ”ΞµΟΟ„ΞµΟΞΏ ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉ ΞµΞ―Ξ½Ξ±ΞΉ Ξ· ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±
           tmpS := ExtractDelimited(2, Params, [CSep]);
 
           FEnableCategories := False;
-          if tmpS[1] = '1' then // υπάρχει κατηγορία
+          if tmpS[1] = '1' then // Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ ΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―Ξ±
           Begin
             IsOneSelected := False;
             for i := 2 to 9 do
@@ -3380,19 +3380,19 @@ var
             FCategories := Copy(tmpS, 2, 8);
           end;
 
-          // τρίτο κομμάτι είναι η περίοδοι
+          // Ο„ΟΞ―Ο„ΞΏ ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉ ΞµΞ―Ξ½Ξ±ΞΉ Ξ· Ο€ΞµΟΞ―ΞΏΞ΄ΞΏΞΉ
           FEnablePeriods := False;
           tmpS := ExtractDelimited(3, Params, [CSep]);
-          if tmpS[1] = '1' then // υπάρχουν περίοδοι
+          if tmpS[1] = '1' then // Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ Ο€ΞµΟΞ―ΞΏΞ΄ΞΏΞΉ
           Begin
             FEnablePeriods := True;
             FPeriodFrom := StrToInt(tmpS[2]);
             FPeriodTo   := StrToInt(tmpS[3]);
           end;
 
-          // το τέταρτο κομμάτι είναι η βαθμολογία
+          // Ο„ΞΏ Ο„Ξ­Ο„Ξ±ΟΟ„ΞΏ ΞΊΞΏΞΌΞΌΞ¬Ο„ΞΉ ΞµΞ―Ξ½Ξ±ΞΉ Ξ· Ξ²Ξ±ΞΈΞΌΞΏΞ»ΞΏΞ³Ξ―Ξ±
           tmpS := ExtractDelimited(4, Params, [CSep]);
-          if tmpS[1] = '1' then // υπάρχει βαθμολογία
+          if tmpS[1] = '1' then // Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ Ξ²Ξ±ΞΈΞΌΞΏΞ»ΞΏΞ³Ξ―Ξ±
           Begin
             FQualityFrom := StrToInt(tmpS[2]);
             FQualityTo   := StrToInt(tmpS[3]);
@@ -3403,7 +3403,7 @@ var
             FQualityTo   := 9;
           end;
 
-          // ακολουθεί το φύλο
+          // Ξ±ΞΊΞΏΞ»ΞΏΟ…ΞΈΞµΞ― Ο„ΞΏ Ο†ΟΞ»ΞΏ
           tmpS := ExtractDelimited(5, Params, [CSep]);
           FSexEnabled := False;
           if tmpS[1] = '1' then
@@ -3412,7 +3412,7 @@ var
             FSex := StrToInt(tmpS[2]);
           end;
 
-          // ακολουθεί το θέμα
+          // Ξ±ΞΊΞΏΞ»ΞΏΟ…ΞΈΞµΞ― Ο„ΞΏ ΞΈΞ­ΞΌΞ±
           tmpS := ExtractDelimited(6, Params, [CSep]);
           FSubjectEnabled := False;
           if tmpS[1] = '1' then
@@ -3577,7 +3577,7 @@ var
           FIgnoreTitles  := False;
 
           FSQLBreak := sbPromos;
-          // Πρώτα ψάξε για promo songs
+          // Ξ ΟΟΟ„Ξ± ΟΞ¬ΞΎΞµ Ξ³ΞΉΞ± promo songs
           FSearchPromos := True;
           FInfo := 'Promo Search';
           InformUser;
@@ -3586,7 +3586,7 @@ var
             Exit;
           FSearchPromos := False;
 
-          // πρώτα χρησιμοποίησε τα φίλτρα ως έχουν
+          // Ο€ΟΟΟ„Ξ± Ο‡ΟΞ·ΟƒΞΉΞΌΞΏΟ€ΞΏΞ―Ξ·ΟƒΞµ Ο„Ξ± Ο†Ξ―Ξ»Ο„ΟΞ± Ο‰Ο‚ Ξ­Ο‡ΞΏΟ…Ξ½
           FSQLBreak := sbOriginal;
           FInfo := 'Default Filters';
           InformUser;
@@ -3594,8 +3594,8 @@ var
           if FoundSong then
             Exit;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Τροποποιούμε τα beat
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞΉΞΏΟΞΌΞµ Ο„Ξ± beat
           FSQLBreak := sbBeat;
           FInfo := 'Change BPM/Delta';
           InformUser;
@@ -3608,8 +3608,8 @@ var
           if FoundSong then
             Exit;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // εάν υπάρχει opener το αγνοούμε
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // ΞµΞ¬Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ opener Ο„ΞΏ Ξ±Ξ³Ξ½ΞΏΞΏΟΞΌΞµ
           FSQLBreak := sbOpener;
           if FOpenerEnabled then
           Begin
@@ -3620,8 +3620,8 @@ var
               Exit;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Τροποποιούμε το quality to
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞΉΞΏΟΞΌΞµ Ο„ΞΏ quality to
           FSQLBreak := sbQualityTo;
           if (FQualityTo < 9) then
           Begin
@@ -3632,26 +3632,26 @@ var
               Exit;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Τροποποίησε την τωρινή ώρα για τον τραγουδιστή
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ο„Ο‰ΟΞΉΞ½Ξ® ΟΟΞ± Ξ³ΞΉΞ± Ο„ΞΏΞ½ Ο„ΟΞ±Ξ³ΞΏΟ…Ξ΄ΞΉΟƒΟ„Ξ®
           FSQLBreak := sbArtistTime;
           FInfo := 'Change Artist Time';
           InformUser;
-          FNowTimeA := FNowTimeA + 365; // πρόσθεσε ένα χρόνο
-          if FoundSong then           // έτσι κι αλλιώς κάνει SQL order by ημερομηνία
+          FNowTimeA := FNowTimeA + 365; // Ο€ΟΟΟƒΞΈΞµΟƒΞµ Ξ­Ξ½Ξ± Ο‡ΟΟΞ½ΞΏ
+          if FoundSong then           // Ξ­Ο„ΟƒΞΉ ΞΊΞΉ Ξ±Ξ»Ξ»ΞΉΟΟ‚ ΞΊΞ¬Ξ½ΞµΞΉ SQL order by Ξ·ΞΌΞµΟΞΏΞΌΞ·Ξ½Ξ―Ξ±
             exit;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Τροποποίησε την τωρινή ώρα  για το τραγούδι
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞµ Ο„Ξ·Ξ½ Ο„Ο‰ΟΞΉΞ½Ξ® ΟΟΞ±  Ξ³ΞΉΞ± Ο„ΞΏ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
           FSQLBreak := sbTitleTime;
           FInfo := 'Change Title Time';
           InformUser;
-          FNowTimeT := FNowTimeT + 365; // πρόσθεσε ένα χρόνο
-          if FoundSong then           // έτσι κι αλλιώς κάνει SQL order by ημερομηνία
+          FNowTimeT := FNowTimeT + 365; // Ο€ΟΟΟƒΞΈΞµΟƒΞµ Ξ­Ξ½Ξ± Ο‡ΟΟΞ½ΞΏ
+          if FoundSong then           // Ξ­Ο„ΟƒΞΉ ΞΊΞΉ Ξ±Ξ»Ξ»ΞΉΟΟ‚ ΞΊΞ¬Ξ½ΞµΞΉ SQL order by Ξ·ΞΌΞµΟΞΏΞΌΞ·Ξ½Ξ―Ξ±
             exit;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // εάν υπάρχει sex το αγνοούμε
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // ΞµΞ¬Ξ½ Ο…Ο€Ξ¬ΟΟ‡ΞµΞΉ sex Ο„ΞΏ Ξ±Ξ³Ξ½ΞΏΞΏΟΞΌΞµ
           FSQLBreak := sbSex;
           if FSexEnabled then
           Begin
@@ -3662,8 +3662,8 @@ var
               Exit;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // αγνόησε το θέμα
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ±Ξ³Ξ½ΟΞ·ΟƒΞµ Ο„ΞΏ ΞΈΞ­ΞΌΞ±
           FSQLBreak := sbSubject;
           if FSubjectEnabled then
           Begin
@@ -3674,8 +3674,8 @@ var
               Exit;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // αγνόησε τα BeatDelta
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ±Ξ³Ξ½ΟΞ·ΟƒΞµ Ο„Ξ± BeatDelta
           FSQLBreak := sbNoBeat;
           NowBeat   := 150;
           BeatDelta := 150;
@@ -3686,8 +3686,8 @@ var
           if FoundSong then
             Exit;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Τροποποίησε τις περιόδους
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞ―Ξ·ΟƒΞµ Ο„ΞΉΟ‚ Ο€ΞµΟΞΉΟΞ΄ΞΏΟ…Ο‚
           FSQLBreak := sbChangePeriods;
           if FEnablePeriods then
           begin
@@ -3700,7 +3700,7 @@ var
                 Exit;
             end;
 
-            // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
+            // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
             if FPeriodTo < 9  then
             Begin
               Inc(FPeriodTo);
@@ -3711,8 +3711,8 @@ var
             end;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Αγνόησε τις περιόδους
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ‘Ξ³Ξ½ΟΞ·ΟƒΞµ Ο„ΞΉΟ‚ Ο€ΞµΟΞΉΟΞ΄ΞΏΟ…Ο‚
           FSQLBreak := sbNoPeriods;
           if FEnablePeriods then
           begin
@@ -3723,8 +3723,8 @@ var
               Exit;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // Τροποποιούμε το quality from
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ¤ΟΞΏΟ€ΞΏΟ€ΞΏΞΉΞΏΟΞΌΞµ Ο„ΞΏ quality from
           FSQLBreak := sbQualityFrom;
           if FQualityFrom > 1  then
           Begin
@@ -3735,8 +3735,8 @@ var
               Exit;
           end;
 
-          // εάν συνεχίσει σημαίνει ότι δεν βρέθηκε τραγούδι
-          // αγνόησε τις υποκατηγορίες
+          // ΞµΞ¬Ξ½ ΟƒΟ…Ξ½ΞµΟ‡Ξ―ΟƒΞµΞΉ ΟƒΞ·ΞΌΞ±Ξ―Ξ½ΞµΞΉ ΟΟ„ΞΉ Ξ΄ΞµΞ½ Ξ²ΟΞ­ΞΈΞ·ΞΊΞµ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
+          // Ξ±Ξ³Ξ½ΟΞ·ΟƒΞµ Ο„ΞΉΟ‚ Ο…Ο€ΞΏΞΊΞ±Ο„Ξ·Ξ³ΞΏΟΞ―ΞµΟ‚
           FSQLBreak := sbCategories;
           if FEnableCategories then
           begin
@@ -3762,7 +3762,7 @@ var
           if FoundSong then
             Exit;
 
-          // του κερατά αν δεν βρει τραγούδι
+          // Ο„ΞΏΟ… ΞΊΞµΟΞ±Ο„Ξ¬ Ξ±Ξ½ Ξ΄ΞµΞ½ Ξ²ΟΞµΞΉ Ο„ΟΞ±Ξ³ΞΏΟΞ΄ΞΉ
           FSQLBreak := sbNoFound;
           Result := False;
         end; // FindSong
@@ -3783,8 +3783,8 @@ begin
       StatusBar1.Update;
 
       RecCount := SearchQuery.RecordCount;
-      if RecCount > CRandomMax then     // άλλαξε αυτή τη τιμή
-        RecCount := CRandomMax;         // για αλλαγή στο random
+      if RecCount > CRandomMax then     // Ξ¬Ξ»Ξ»Ξ±ΞΎΞµ Ξ±Ο…Ο„Ξ® Ο„Ξ· Ο„ΞΉΞΌΞ®
+        RecCount := CRandomMax;         // Ξ³ΞΉΞ± Ξ±Ξ»Ξ»Ξ±Ξ³Ξ® ΟƒΟ„ΞΏ random
 
       if GoToRandomRec <> 0 then
       begin
@@ -3807,7 +3807,7 @@ begin
       end;
 
       Inc(GoToRandomRec);
-      if GoToRandomRec >= 4 then  // 4 random και 1 με το λιγότερο παίξιμο 
+      if GoToRandomRec >= 4 then  // 4 random ΞΊΞ±ΞΉ 1 ΞΌΞµ Ο„ΞΏ Ξ»ΞΉΞ³ΟΟ„ΞµΟΞΏ Ο€Ξ±Ξ―ΞΎΞΉΞΌΞΏ 
         GoToRandomRec := 0;
 
       dsSearch.DataSet.First;

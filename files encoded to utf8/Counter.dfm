@@ -1,0 +1,39 @@
+object Form1: TForm1
+  Left = 291
+  Top = 114
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Counter'
+  ClientHeight = 61
+  ClientWidth = 143
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 0
+    Top = 0
+    Width = 143
+    Height = 61
+    Align = alClient
+    Alignment = taCenter
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 32
+  end
+end
